@@ -1,0 +1,11 @@
+# Ignorar arquivos e diretórios específicos
+arquivo.txt
+diretorio/
+
+# Ignorar todos os arquivos com uma determinada extensão
+*.log
+*.tmp
+
+# Ignorar arquivos de compilação em todos os projetos dentro da pasta java
+java/*/target/
+java/*/build/
