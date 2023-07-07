@@ -1,4 +1,4 @@
-package com.cassiolucianodasilva.userapi;
+package com.cassio.userapi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

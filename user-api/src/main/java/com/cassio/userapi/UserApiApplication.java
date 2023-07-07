@@ -1,4 +1,4 @@
-package com.cassiolucianodasilva.userapi;
+package com.cassio.userapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

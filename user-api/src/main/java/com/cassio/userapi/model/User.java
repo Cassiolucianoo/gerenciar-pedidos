@@ -1,4 +1,4 @@
-package com.cassiolucianodasilva.orderapi.model;
+package com.cassio.userapi.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

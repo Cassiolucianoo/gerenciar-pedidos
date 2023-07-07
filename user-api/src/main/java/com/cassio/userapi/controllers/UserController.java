@@ -1,13 +1,11 @@
-package com.cassiolucianodasilva.orderapi.controllers.copy;
+package com.cassio.userapi.controllers;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.cassiolucianodasilva.orderapi.model.User;
-import com.cassiolucianodasilva.orderapi.service.UserService;
-
-import java.time.LocalDateTime;
+import com.cassio.userapi.model.User;
+import com.cassio.userapi.service.UserService;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -44,7 +42,7 @@ public class UserController {
     
     
     @PutMapping("/{id}")
-    public ResponseEntity<User> updateUser(@PathVariable Long id, @RequestBody User updatedUser) {
+    public @ResponseBody ResponseEntity<User> updateUser(@Valid Long id, @Valid  User updatedUser) {
         User updated = userService.updateUser(id, updatedUser);
         if (updated != null) {
             return ResponseEntity.ok(updated);
@@ -59,3 +57,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 }
+

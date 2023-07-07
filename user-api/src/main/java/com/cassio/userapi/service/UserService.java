@@ -1,9 +1,9 @@
-package com.cassiolucianodasilva.orderapi.service;
+package com.cassio.userapi.service;
 
 import org.springframework.stereotype.Service;
 
-import com.cassiolucianodasilva.orderapi.model.User;
-import com.cassiolucianodasilva.orderapi.repository.UserRepository;
+import com.cassio.userapi.model.User;
+import com.cassio.userapi.repository.UserRepository;
 
 import java.time.LocalDateTime;
 import java.util.List;
