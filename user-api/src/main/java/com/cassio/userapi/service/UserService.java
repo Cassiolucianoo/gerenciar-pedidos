@@ -1,5 +1,6 @@
 package com.cassio.userapi.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.cassio.userapi.model.User;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Service
 public class UserService {
+	
     private final UserRepository userRepository;
 
     public UserService(UserRepository userRepository) {
@@ -30,8 +32,9 @@ public class UserService {
         user.setUpdated_at(LocalDateTime.now());
         return userRepository.save(user);
     }
-
+    
     public User updateUser(Long id, User updatedUser) {
+    	
         Optional<User> optionalUser = userRepository.findById(id);
         
         if (optionalUser.isPresent()) {

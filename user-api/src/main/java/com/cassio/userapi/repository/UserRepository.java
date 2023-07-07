@@ -5,7 +5,18 @@ import org.springframework.stereotype.Repository;
 
 import com.cassio.userapi.model.User;
 
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     // Métodos personalizados, se necessário
+	User findById(long id);
 }
+
+
+
+
+
+
+
+
+
