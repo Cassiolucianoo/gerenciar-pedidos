@@ -1,20 +1,19 @@
 package com.cassio.userapi.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.cassio.userapi.model.User;
-import com.cassio.userapi.repository.UserRepository;
+
 import com.cassio.userapi.service.UserService;
 import java.util.List;
 
@@ -45,7 +44,8 @@ public class UserController {
         return ResponseEntity.notFound().build();
     }
     
-
+//metodo 
+  
 //    @PostMapping
 //    public @ResponseBody ResponseEntity<User> createUser(@Valid  User user) {
 //        User createdUser = userService.createUser(user);
@@ -58,7 +58,7 @@ public class UserController {
 		return user;
 
 	}
-
+    
 //    @PutMapping("/{id}")
 //    public ResponseEntity<User> updateUser(@PathVariable Long id,  @Valid User updatedUser) {
 //        User updated = userService.updateUser(id, updatedUser);
