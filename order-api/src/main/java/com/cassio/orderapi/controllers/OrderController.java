@@ -6,9 +6,12 @@ import org.springframework.web.bind.annotation.*;
 
 import com.cassio.orderapi.model.Order;
 import com.cassio.orderapi.service.OrderService;
+import com.cassio.userapi.model.User;
 
 import java.net.URI;
 import java.util.List;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/orders")
@@ -40,21 +43,32 @@ public class OrderController {
         return orderService.getOrdersByUserId(userId);
     }
 
-    @PostMapping
-    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-        Order createdOrder = orderService.createOrder(order);
-        return ResponseEntity.created(URI.create("/orders/" + createdOrder.getId())).body(createdOrder);
+    
+    
+    @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
+    public @ResponseBody Order novoProdutos(@Valid Order order) {
+    orderService.createOrder(order); return order;
+    
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order order) {
-        Order updatedOrder = orderService.updateOrder(id, order);
-        if (updatedOrder != null) {
-            return ResponseEntity.ok(updatedOrder);
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
+    
+    
+//    
+//    @PostMapping
+//    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
+//        Order createdOrder = orderService.createOrder(order);
+//        return ResponseEntity.created(URI.create("/orders/" + createdOrder.getId())).body(createdOrder);
+//    }
+//
+//    @PutMapping("/{id}")
+//    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order order) {
+//        Order updatedOrder = orderService.updateOrder(id, order);
+//        if (updatedOrder != null) {
+//            return ResponseEntity.ok(updatedOrder);
+//        } else {
+//            return ResponseEntity.notFound().build();
+//        }
+//    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
