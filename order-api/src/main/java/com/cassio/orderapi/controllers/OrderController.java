@@ -14,7 +14,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/orders")
+@RequestMapping("/order")
 public class OrderController {
 
     private final OrderService orderService;
@@ -51,15 +51,15 @@ public class OrderController {
     
     }
 
+
     
     
-//    
-//    @PostMapping
-//    public ResponseEntity<Order> createOrder(@RequestBody Order order) {
-//        Order createdOrder = orderService.createOrder(order);
-//        return ResponseEntity.created(URI.create("/orders/" + createdOrder.getId())).body(createdOrder);
-//    }
-//
+    
+    public @ResponseBody ResponseEntity<Order> createOrder(@Valid  Order order) {
+        Order createdOrder = orderService.createOrder(order);
+        return ResponseEntity.created(URI.create("/order/" + createdOrder.getId())).body(createdOrder);
+    }
+
 //    @PutMapping("/{id}")
 //    public ResponseEntity<Order> updateOrder(@PathVariable Long id, @RequestBody Order order) {
 //        Order updatedOrder = orderService.updateOrder(id, order);

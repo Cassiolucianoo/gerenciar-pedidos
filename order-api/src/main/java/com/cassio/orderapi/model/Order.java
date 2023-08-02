@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "order")
+@Table(name = "tbl_order")
 public class Order {
 
     @Id
