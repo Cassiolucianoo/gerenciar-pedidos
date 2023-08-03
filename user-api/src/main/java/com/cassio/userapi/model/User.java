@@ -34,8 +34,6 @@ public class User {
 	@Column(name = "updated_at")
 	private LocalDateTime updatedAt;
 
-
-
 	public User() {
 		super();
 	}
@@ -121,9 +119,6 @@ public class User {
 	public void setCpfErrorMessage(String cpfErrorMessage) {
 		this.cpfErrorMessage = cpfErrorMessage;
 	}
-
-	
-
 }
 
 
