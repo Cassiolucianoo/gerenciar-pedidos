@@ -1,13 +1,9 @@
 package com.cassio.orderapi.controllers;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import com.cassio.orderapi.model.Order;
 import com.cassio.orderapi.service.OrderService;
-import com.cassio.userapi.model.User;
-
 import java.net.URI;
 import java.util.List;
 
@@ -43,17 +39,11 @@ public class OrderController {
         return orderService.getOrdersByUserId(userId);
     }
 
-    
-    
     @RequestMapping(method = {RequestMethod.POST, RequestMethod.PUT})
     public @ResponseBody Order novoProdutos(@Valid Order order) {
     orderService.createOrder(order); return order;
     
     }
-
-
-    
-    
     
     public @ResponseBody ResponseEntity<Order> createOrder(@Valid  Order order) {
         Order createdOrder = orderService.createOrder(order);

@@ -7,38 +7,41 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
+import com.cassio.userapi.util.CpfUtil;
 
 @Entity
 @Table(name = "user")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    private String name;
+	private String name;
 
-    private String cpf;
+	private String cpf;
 
-    private String email;
+	private String email;
+	
+	private String cpfErrorMessage;
 
-    @Column(name = "phone_number")
-    private String phoneNumber;
+	@Column(name = "phone_number")
+	private String phoneNumber;
 
-    @Column(name = "created_at")
-    private LocalDateTime createdAt;
+	@Column(name = "created_at")
+	private LocalDateTime createdAt;
 
-    @Column(name = "updated_at")
-    private LocalDateTime updatedAt;
-    
-    
+	@Column(name = "updated_at")
+	private LocalDateTime updatedAt;
+
+
 
 	public User() {
 		super();
 	}
 
 	public User(Long id, String name, String cpf, String email, String phoneNumber, LocalDateTime createdAt,
-			LocalDateTime updatedAt) {
+			LocalDateTime updatedAt, String cpfErrorMessage) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -47,6 +50,7 @@ public class User {
 		this.phoneNumber = phoneNumber;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
+		this.cpfErrorMessage = cpfErrorMessage;
 	}
 
 	public Long getId() {
@@ -70,7 +74,12 @@ public class User {
 	}
 
 	public void setCpf(String cpf) {
-		this.cpf = cpf;
+	     if (CpfUtil.validarCPF(cpf)) {
+	            this.cpf = cpf;
+	        } else {
+	        	this.cpf = null; // Define o CPF como null ou um valor padrão válido
+	            this.cpfErrorMessage = "CPF inválido! O CPF deve conter 11 dígitos válidos.";
+	        }
 	}
 
 	public String getEmail() {
@@ -105,13 +114,16 @@ public class User {
 		this.updatedAt = updatedAt;
 	}
 
-    // Constructors, getters, and setters
-    // ...
-    
-    
-    
-    
-    
+	public String getCpfErrorMessage() {
+		return cpfErrorMessage;
+	}
+
+	public void setCpfErrorMessage(String cpfErrorMessage) {
+		this.cpfErrorMessage = cpfErrorMessage;
+	}
+
+	
+
 }
 
 
